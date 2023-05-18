@@ -1,4 +1,5 @@
-export default function NavbarComponent(){
+import PropTypes from 'prop-types';
+export default function NavbarComponent(props){
     return(
         <>
             <nav className="navbar navbar-default">
@@ -10,12 +11,12 @@ export default function NavbarComponent(){
         <span className="icon-bar"></span>
         <span className="icon-bar"></span>
       </button>
-      <a className="navbar-brand" href="/">TextUtils</a>
+      <a className="navbar-brand" href="/">{props.title}</a>
     </div>
     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul className="nav navbar-nav">
         <li className="active"><a href="/">Home <span className="sr-only">(current)</span></a></li>
-        <li><a href="/">About</a></li>
+        <li><a href="/">{props.about}</a></li>
       </ul>
       <form className="navbar-form navbar-left">
         <div className="form-group">
@@ -29,3 +30,12 @@ export default function NavbarComponent(){
         </>
     )
 }
+NavbarComponent.propType = {
+  title: PropTypes.string.isRequired,
+  about: PropTypes.string
+}
+
+// NavbarComponent.defaultProps = {
+//   title:"yout title here"
+// }
+
